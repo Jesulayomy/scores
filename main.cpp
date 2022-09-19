@@ -5,7 +5,6 @@ using namespace std;
 int main()
 {
     /* Arrays */
-
     int marks2[2][4];
 
     cout << "Enter Layo's scores... " << endl;
