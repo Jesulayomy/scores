@@ -14,8 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-    run: sudo apt install -y libcppunit-dev
-    -name : configure
-    run: ./configure
-    -name: Make
-    run: make
+      run: sudo apt install -y libcppunit-dev
+    - name : config
+      run: ./configure
+    - name: Make
+      run: make
