@@ -1,21 +1,26 @@
-name: C++ BUild
+name: C++ Build and Run
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches:
+      - master
 
 jobs:
-  build:
-    name: Build the main.cpp
+  build_and_run:
+    name: Build and Run C++ Code
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build
-      run: sudo apt install -y libcppunit-dev
-    - name : config
-      run: ./configure
-    - name: Make
-      run: make
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up C++ (g++)
+        uses: actions/setup-cpp@v1
+        with:
+          compiler-version: '12.0'
+
+      - name: Build
+        run: g++ main.cpp -o main.out
+
+      - name: Run
+        run: ./main.out
