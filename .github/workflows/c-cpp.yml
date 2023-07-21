@@ -1,0 +1,19 @@
+name: C++ BUild
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    name: Build the main.cpp
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      run: |
+        g++ main.cpp -o main
+      working-directory: ./main.cpp
