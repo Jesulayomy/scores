@@ -12,8 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - name: Build
-      run: |
-        g++ main.cpp -o main
-      working-directory: ./main.cpp
+    run: sudo apt install -y libcppunit-dev
+    -name : configure
+    run: ./configure
+    -name: Make
+    run: make
